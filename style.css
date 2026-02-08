@@ -131,8 +131,6 @@ main { margin-left: var(--sidebar-width); flex: 1; }
         display: none; /* Hidden by default */
         position: absolute;
         top: 100%;
-        right: 0;
-        left: 0;
         width: 100%;
         background: white;
         padding: 20px;
