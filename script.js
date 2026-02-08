@@ -1,33 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navItems = document.querySelectorAll('.nav-item');
+    const menuToggle = document.getElementById('menuToggle');
+    const navContent = document.getElementById('navContent');
 
-    // Smooth scroll and active state logic
+    // Toggle Mobile Menu
+    menuToggle.addEventListener('click', () => {
+        navContent.classList.toggle('active');
+        
+        // Optional: Animate hamburger to X
+        menuToggle.classList.toggle('open');
+    });
+
+    // Close menu when clicking a link (on mobile)
+    const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
         item.addEventListener('click', () => {
-            const target = item.getAttribute('data-target');
-            
-            // Log target for debugging
-            console.log("Navigating to section:", target);
-
-            // Simple click feedback
-            navItems.forEach(nav => nav.style.opacity = '1');
-            item.style.opacity = '0.5';
-
-            // Scroll to top as a default action
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            if (window.innerWidth <= 768) {
+                navContent.classList.remove('active');
+            }
         });
     });
 
-    // Add shadow to sidebar on scroll
-    window.addEventListener('scroll', () => {
-        const sidebar = document.querySelector('.sidebar');
-        if (window.scrollY > 50) {
-            sidebar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
-        } else {
-            sidebar.style.boxShadow = 'none';
+    // Close menu if clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navContent.contains(e.target)) {
+            navContent.classList.remove('active');
         }
     });
 });
