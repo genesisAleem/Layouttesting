@@ -43,7 +43,7 @@ body { font-family: 'Rethink Sans', sans-serif; }
 .nav-item {
     margin-bottom: 16px;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 100;
     cursor: pointer;
     display: flex;
 }
