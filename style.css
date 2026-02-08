@@ -143,4 +143,6 @@ main { margin-left: var(--sidebar-width); flex: 1; }
     .nav-content.active { display: block; }
     
     .content-container { flex-direction: column; padding: 40px 20px; }
+
+    .nav-item { margin-bottom: 25px; }
 }
